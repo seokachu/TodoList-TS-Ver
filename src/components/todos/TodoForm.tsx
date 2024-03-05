@@ -30,7 +30,7 @@ const TodoForm = () => {
     e.preventDefault();
     const date = new Date();
     const newTodos = {
-      id: crypto.randomUUID,
+      id: crypto.randomUUID(),
       title,
       content,
       createAt: getFormattedDate(date),
@@ -47,7 +47,7 @@ const TodoForm = () => {
         <p>
           <label htmlFor="title">제목</label>
           <input
-            name="text"
+            name="title"
             type="text"
             id="title"
             value={title}
