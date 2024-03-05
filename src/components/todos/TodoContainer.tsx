@@ -1,7 +1,7 @@
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-const TodoController = () => {
+const TodoContainer = () => {
   return (
     <div>
       <p>#####컨트롤러 영역입니다.######</p>
@@ -12,4 +12,4 @@ const TodoController = () => {
   );
 };
 
-export default TodoController;
+export default TodoContainer;

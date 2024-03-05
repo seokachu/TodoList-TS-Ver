@@ -13,6 +13,7 @@ const TodoForm = () => {
     title: '',
     content: '',
     createAt: '',
+    isdone: false,
   });
 
   const { title, content } = formState;
@@ -29,16 +30,31 @@ const TodoForm = () => {
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const date = new Date();
-    const newTodos = {
-      id: crypto.randomUUID(),
-      title,
-      content,
-      createAt: getFormattedDate(date),
-    };
+    if (validation()) {
+      const newTodos = {
+        id: crypto.randomUUID(),
+        title,
+        content,
+        createAt: getFormattedDate(date),
+        isdone: false,
+      };
+      mutation.mutate(newTodos);
+      resetForm();
+      toast.success('입력되었습니다');
+    }
+  };
 
-    mutation.mutate(newTodos);
-    resetForm();
-    toast.success('입력되었습니다');
+  //validation
+  const validation = () => {
+    if (!title.trim()) {
+      toast.error('제목을 입력해 주세요');
+      return;
+    }
+    if (!content.trim()) {
+      toast.error('내용을 입력해 주세요');
+      return;
+    }
+    return true;
   };
 
   return (
@@ -53,8 +69,8 @@ const TodoForm = () => {
             value={title}
             placeholder="제목을 입력해 주세요."
             onChange={onChangeHandler}
+            autoFocus
           />
-          <span>에러영역 할거임</span>
         </p>
         <p>
           <label htmlFor="content">내용</label>
@@ -66,7 +82,6 @@ const TodoForm = () => {
             value={content}
             onChange={onChangeHandler}
           />
-          <span>에러영역 할거임</span>
         </p>
         <button>등록하기</button>
       </div>

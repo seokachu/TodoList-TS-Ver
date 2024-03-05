@@ -5,6 +5,7 @@ interface IInputForm {
   title: string;
   content: string;
   createAt: string;
+  isdone: boolean;
 }
 
 const inputForm = (initialState: IInputForm) => {

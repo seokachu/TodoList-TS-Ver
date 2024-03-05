@@ -1,12 +1,12 @@
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
-import TodoController from '../components/todos/TodoController';
+import TodoContainer from '../components/todos/TodoContainer';
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <TodoController />
+      <TodoContainer />
       <Footer />
     </div>
   );
