@@ -4,6 +4,7 @@ import inputForm from '../../hooks/inputForm';
 import { createTodos } from '../../api/todos';
 import { toast } from 'react-toastify';
 import { getFormattedDate } from '../../util/date';
+import { IInputForm } from '../../hooks/interface';
 
 const TodoForm = () => {
   const queryClient = useQueryClient();

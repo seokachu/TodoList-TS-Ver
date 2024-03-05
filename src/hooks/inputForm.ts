@@ -1,12 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-
-interface IInputForm {
-  id: string;
-  title: string;
-  content: string;
-  createAt: string;
-  isdone: boolean;
-}
+import { IInputForm } from '../hooks/interface';
 
 const inputForm = (initialState: IInputForm) => {
   const [formState, setFormState] = useState<IInputForm>(initialState);
