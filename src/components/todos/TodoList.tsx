@@ -4,7 +4,7 @@ import TodoItems from './TodoItems';
 import { IInputForm } from '../../hooks/interface';
 
 const TodoList = () => {
-  const query = useQuery({
+  const query = useQuery<IInputForm[]>({
     queryKey: ['todos'],
     queryFn: getTodos,
   });
@@ -18,12 +18,27 @@ const TodoList = () => {
     console.log('Error:', query.isError);
   }
 
+  const workingTodos = query.data
+    ? query.data.filter((todo) => !todo.isdone)
+    : [];
+  const doneTodos = query.data ? query.data.filter((todo) => todo.isdone) : [];
+
+  const renderTodoItems = (queryData: IInputForm[], title: string) => (
+    <section>
+      <h2>{title}</h2>
+      <ul>
+        {queryData.map((item: IInputForm) => (
+          <TodoItems key={item.id} item={item} />
+        ))}
+      </ul>
+    </section>
+  );
+
   return (
-    <ul>
-      {query.data.map((item: IInputForm) => (
-        <TodoItems key={item.id} item={item} />
-      ))}
-    </ul>
+    <>
+      {renderTodoItems(workingTodos, '✍️ WORKING')}
+      {renderTodoItems(doneTodos, '🌟 DONE')}
+    </>
   );
 };
 
