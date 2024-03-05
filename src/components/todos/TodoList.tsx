@@ -18,8 +18,6 @@ const TodoList = () => {
     console.log('Error:', query.isError);
   }
 
-  // const filterCardItem = query.data.filter((item) => item.id === id);
-
   return (
     <ul>
       {query.data.map((item: IInputForm) => (
