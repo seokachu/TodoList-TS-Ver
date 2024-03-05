@@ -16,7 +16,11 @@ export const getTodos = async () => {
 };
 
 //추가하기
-export const createTodos = async (item: { title: string; content: string }) => {
+export const createTodos = async (item: {
+  title: string;
+  content: string;
+  createAt: string;
+}) => {
   const { data } = await todoClient.post('/todos', item);
   return data;
 };
@@ -30,7 +34,7 @@ export const deleteTodos = async (id: string) => {
 //수정하기
 export const updateTodos = async (
   id: string,
-  todos: { title: string; content: string; isdone: boolean }
+  todos: { title: string; content: string; isdone: boolean; createAt: string }
 ) => {
   await todoClient.patch(`/todos/${id}`, todos);
   return id;

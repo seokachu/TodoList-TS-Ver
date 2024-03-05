@@ -26,6 +26,7 @@ const TodoItems: React.FC<Props> = ({ item }) => {
       await updateTodos(id, {
         title: item.title,
         content: item.content,
+        createAt: item.createAt,
         isdone: !item.isdone,
       });
     },
@@ -53,6 +54,7 @@ const TodoItems: React.FC<Props> = ({ item }) => {
     <li>
       <h3>{item.title}</h3>
       <p>{item.content}</p>
+      <p>{item.createAt}</p>
       <button onClick={onDeleteHander}>삭제하기</button>
       <button onClick={onClickHandleToggle}>
         {item.isdone ? '취소' : '완료'}
