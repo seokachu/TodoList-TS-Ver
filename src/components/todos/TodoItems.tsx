@@ -1,7 +1,7 @@
 import React from 'react';
 import { IInputForm } from '../../hooks/interface';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteTodos } from '../../api/todos';
+import { deleteTodos, updateTodos } from '../../api/todos';
 import { toast } from 'react-toastify';
 
 interface Props {
@@ -22,14 +22,12 @@ const TodoItems: React.FC<Props> = ({ item }) => {
 
   //완료 mutate
   const { mutate: editMutate } = useMutation({
-    mutationFn: async (data: {
-      id: string;
-      todos: string;
-      isdone: boolean;
-    }) => {
-      const { id, todos } = data;
-      await updateTodos(id, { title: todos, content: todos, isdone: false });
-      console.log(data);
+    mutationFn: async (id: string) => {
+      await updateTodos(id, {
+        title: item.title,
+        content: item.content,
+        isdone: !item.isdone,
+      });
     },
     onSuccess: () => {
       queryClient.invalidateQueries();
@@ -48,12 +46,7 @@ const TodoItems: React.FC<Props> = ({ item }) => {
 
   //완료 Btn
   const onClickHandleToggle = () => {
-    const updatedItem = { ...item, isdone: !item.isdone };
-    editMutate({
-      id: updatedItem.id,
-      todos: `${updatedItem.title} ${updatedItem.content}`,
-      isdone: updatedItem.isdone,
-    });
+    editMutate(item.id);
   };
 
   return (
