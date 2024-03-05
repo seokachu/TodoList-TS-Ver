@@ -1,14 +1,17 @@
-import Footer from './components/common/Footer';
-import Header from './components/common/Header';
-import TodoController from './components/todos/TodoController';
+import { Provider } from 'react-redux';
+import Router from './shared/Router';
+import store from './shared/store/config/configStore';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
-      <Header />
-      <TodoController />
-      <Footer />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    </QueryClientProvider>
   );
 }
 

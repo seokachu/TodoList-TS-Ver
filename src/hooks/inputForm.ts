@@ -1,8 +1,10 @@
 import { ChangeEvent, useState } from 'react';
 
 interface IInputForm {
+  id: string;
   title: string;
   content: string;
+  createAt: string;
 }
 
 const inputForm = (initialState: IInputForm) => {
