@@ -20,6 +20,22 @@ const TodoItems: React.FC<Props> = ({ item }) => {
     },
   });
 
+  //완료 mutate
+  const { mutate: editMutate } = useMutation({
+    mutationFn: async (data: {
+      id: string;
+      todos: string;
+      isdone: boolean;
+    }) => {
+      const { id, todos } = data;
+      await updateTodos(id, { title: todos, content: todos, isdone: false });
+      console.log(data);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
   //삭제하기Btn
   const onDeleteHander = () => {
     if (window.confirm('정말로 삭제하시겠습니까?')) {
@@ -30,14 +46,24 @@ const TodoItems: React.FC<Props> = ({ item }) => {
     }
   };
 
-  //완료버튼Btn
+  //완료 Btn
+  const onClickHandleToggle = () => {
+    const updatedItem = { ...item, isdone: !item.isdone };
+    editMutate({
+      id: updatedItem.id,
+      todos: `${updatedItem.title} ${updatedItem.content}`,
+      isdone: updatedItem.isdone,
+    });
+  };
 
   return (
     <li>
       <h3>{item.title}</h3>
       <p>{item.content}</p>
       <button onClick={onDeleteHander}>삭제하기</button>
-      <button>완료</button>
+      <button onClick={onClickHandleToggle}>
+        {item.isdone ? '취소' : '완료'}
+      </button>
     </li>
   );
 };

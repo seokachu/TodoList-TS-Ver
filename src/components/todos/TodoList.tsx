@@ -4,12 +4,14 @@ import TodoItems from './TodoItems';
 import { IInputForm } from '../../hooks/interface';
 
 const TodoList = () => {
+  //react-query getTodos 내용 불러오기
   const query = useQuery<IInputForm[]>({
     queryKey: ['todos'],
     queryFn: getTodos,
   });
 
   console.log(query);
+
   if (query.isLoading) {
     return <div>로딩중입니다! 조금만 기다려 주세요...</div>;
   }

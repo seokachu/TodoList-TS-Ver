@@ -30,7 +30,7 @@ export const deleteTodos = async (id: string) => {
 //수정하기
 export const updateTodos = async (
   id: string,
-  todos: { title: string; content: string }
+  todos: { title: string; content: string; isdone: boolean }
 ) => {
   await todoClient.patch(`/todos/${id}`, todos);
   return id;

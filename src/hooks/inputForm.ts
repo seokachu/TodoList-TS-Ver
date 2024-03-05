@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { IInputForm } from '../hooks/interface';
 
-const inputForm = (initialState: IInputForm) => {
+const InputForm = (initialState: IInputForm) => {
   const [formState, setFormState] = useState<IInputForm>(initialState);
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -15,4 +15,4 @@ const inputForm = (initialState: IInputForm) => {
   return { formState, onChangeHandler, resetForm };
 };
 
-export default inputForm;
+export default InputForm;
