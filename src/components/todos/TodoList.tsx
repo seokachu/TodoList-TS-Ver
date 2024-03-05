@@ -10,7 +10,7 @@ const TodoList = () => {
     queryFn: getTodos,
   });
 
-  console.log(query);
+  // console.log(query);
 
   if (query.isLoading) {
     return <div>로딩중입니다! 조금만 기다려 주세요...</div>;
@@ -20,6 +20,7 @@ const TodoList = () => {
     console.log('Error:', query.isError);
   }
 
+  //undefined일 수 있기 때문에 데이터가 있냐?로 3항연산자로 바꿈
   const workingTodos = query.data
     ? query.data.filter((todo) => !todo.isdone)
     : [];
