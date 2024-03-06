@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { IInputForm } from '../hooks/interface';
 
 const SERVER_URL = import.meta.env.VITE_REACT_APP_SERVER_URL;
 
@@ -16,12 +17,7 @@ export const getTodos = async () => {
 };
 
 //추가하기
-export const createTodos = async (item: {
-  title: string;
-  content: string;
-  createAt: string;
-  color: string;
-}) => {
+export const createTodos = async (item: Partial<IInputForm>) => {
   const { data } = await todoClient.post('/todos', item);
   return data;
 };
@@ -35,8 +31,8 @@ export const deleteTodos = async (id: string) => {
 //수정하기
 export const updateTodos = async (
   id: string,
-  todos: { title: string; content: string; isdone: boolean; createAt: string }
-) => {
+  todos: Partial<IInputForm>
+): Promise<string> => {
   await todoClient.patch(`/todos/${id}`, todos);
   return id;
 };

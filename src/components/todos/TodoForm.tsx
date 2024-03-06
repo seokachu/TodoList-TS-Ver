@@ -63,32 +63,40 @@ const TodoForm = () => {
   };
 
   return (
-    <S.Form onSubmit={onSubmitHandler}>
-      <p>
-        <label htmlFor="title">제목</label>
-        <input
-          name="title"
-          type="text"
-          id="title"
-          value={title}
-          placeholder="제목을 입력해 주세요."
-          onChange={onChangeHandler}
-          autoFocus
-        />
-      </p>
-      <p>
-        <label htmlFor="content">내용</label>
-        <input
-          name="content"
-          type="text"
-          id="content"
-          placeholder="내용을 입력해 주세요."
-          value={content}
-          onChange={onChangeHandler}
-        />
-      </p>
-      <button>등록하기</button>
-    </S.Form>
+    <>
+      <S.Form onSubmit={onSubmitHandler}>
+        <p>
+          <label htmlFor="title">제목</label>
+          <input
+            name="title"
+            type="text"
+            id="title"
+            value={title}
+            placeholder="제목을 입력해 주세요."
+            onChange={onChangeHandler}
+            autoFocus
+          />
+        </p>
+        <p>
+          <label htmlFor="content">내용</label>
+          <input
+            name="content"
+            type="text"
+            id="content"
+            placeholder="내용을 입력해 주세요."
+            value={content}
+            onChange={onChangeHandler}
+          />
+        </p>
+        <button>등록하기</button>
+      </S.Form>
+      <div>
+        <select>
+          <option>오름차순</option>
+          <option>내림차순</option>
+        </select>
+      </div>
+    </>
   );
 };
 

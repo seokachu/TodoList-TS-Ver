@@ -29,6 +29,7 @@ const TodoItems: React.FC<Props> = ({ item }) => {
         content: item.content,
         createAt: item.createAt,
         isdone: !item.isdone,
+        color: item.color,
       });
     },
     onSuccess: () => {
@@ -48,6 +49,8 @@ const TodoItems: React.FC<Props> = ({ item }) => {
 
   //완료 Btn
   const onClickHandleToggle = () => {
+    // const updateTodo = { ...item }; //깊은복사
+    // console.log(updateTodo);
     editMutate(item.id);
   };
 
