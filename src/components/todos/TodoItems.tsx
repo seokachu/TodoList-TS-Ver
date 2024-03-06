@@ -3,6 +3,8 @@ import { IInputForm } from '../../hooks/interface';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteTodos, updateTodos } from '../../api/todos';
 import { toast } from 'react-toastify';
+import { randomCardColor } from '../../util/color';
+import * as S from '../../styles/style';
 
 interface Props {
   item: IInputForm;
@@ -51,14 +53,16 @@ const TodoItems: React.FC<Props> = ({ item }) => {
   };
 
   return (
-    <li>
+    <li style={{ backgroundColor: randomCardColor() }}>
       <h3>{item.title}</h3>
       <p>{item.content}</p>
-      <p>{item.createAt}</p>
-      <button onClick={onDeleteHander}>삭제하기</button>
-      <button onClick={onClickHandleToggle}>
-        {item.isdone ? '취소' : '완료'}
-      </button>
+      <S.Date>{item.createAt}</S.Date>
+      <S.ButtonWrapper>
+        <button onClick={onDeleteHander}>삭제하기</button>
+        <button onClick={onClickHandleToggle}>
+          {item.isdone ? '취소' : '완료'}
+        </button>
+      </S.ButtonWrapper>
     </li>
   );
 };

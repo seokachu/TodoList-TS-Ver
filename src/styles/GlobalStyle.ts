@@ -47,6 +47,8 @@ const GlobalStyle = createGlobalStyle`
 
     * {
         box-sizing: border-box;
+        color: #333;
+        line-height: 24px;
     }
 
     body {
@@ -59,12 +61,42 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button{
+        border: 1px solid #999;
+        background-color: transparent;
+        border-radius: 5px;
         cursor: pointer;
     }
 
     textarea{
         resize: none;
     }
+
+    input[type="text"] {
+        width: 200px;
+        height: 45px;
+        border-radius: 50px;
+        border: 1px solid #999;
+        text-align: left;
+        padding: 0 20px;
+        box-sizing:border-box;
+    }
+
+    input[type="text"]::placeholder {
+        color: #ccc;
+        line-height:24px;
+    }
+
+    h1,
+    h2 {
+        font-size: 36px;
+        line-height: 54px;
+        font-weight: 500;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
 
  
 `;

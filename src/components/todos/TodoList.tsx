@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getTodos } from '../../api/todos';
 import TodoItems from './TodoItems';
 import { IInputForm } from '../../hooks/interface';
+import * as S from '../../styles/style';
 
 const TodoList = () => {
   //react-query getTodos 내용 불러오기
@@ -28,12 +29,12 @@ const TodoList = () => {
 
   const renderTodoItems = (queryData: IInputForm[], title: string) => (
     <section>
-      <h2>{title}</h2>
-      <ul>
+      <S.H2>{title}</S.H2>
+      <S.TodoList>
         {queryData.map((item: IInputForm) => (
           <TodoItems key={item.id} item={item} />
         ))}
-      </ul>
+      </S.TodoList>
     </section>
   );
 

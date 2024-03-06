@@ -1,14 +1,13 @@
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import * as S from '../../styles/common';
 
 const TodoContainer = () => {
   return (
-    <div>
-      <p>#####컨테이너 영역입니다.######</p>
+    <S.Main>
       <TodoForm />
       <TodoList />
-      <p>#####컨테이너 영역입니다.######</p>
-    </div>
+    </S.Main>
   );
 };
 
