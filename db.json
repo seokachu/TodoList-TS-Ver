@@ -1,74 +1,36 @@
 {
   "todos": [
     {
-      "id": "a1779ace-920f-4ee7-9c1a-8c056b95b81d",
-      "title": "123 123",
-      "content": "123 123",
-      "createAt": "2024년 3월 6일 오전 6:14",
-      "isdone": true
-    },
-    {
-      "id": "8ae1d298-e921-4d2f-a930-ef332f8e5e61",
+      "id": "108605dd-98c2-442f-a1b6-479a7174b4ba",
       "title": "123",
       "content": "123",
-      "createAt": "2024년 3월 6일 오전 6:25",
-      "isdone": true
+      "createAt": "2024년 3월 7일 오전 1:09",
+      "isdone": true,
+      "color": "#ebebeb"
     },
     {
-      "id": "7d757200-5987-416a-922d-c79dee50d0d7",
+      "id": "abfea8bb-4526-496a-8405-809f2b05d47b",
       "title": "123",
       "content": "123",
-      "createAt": "2024년 3월 6일 오전 6:57",
-      "isdone": true
+      "createAt": "2024년 3월 7일 오전 1:09",
+      "isdone": true,
+      "color": "#ffbfc0"
     },
     {
-      "id": "32916039-eb6e-4b83-aa74-3c08270baf6c",
+      "id": "4e659f34-c106-430b-b8cc-09c82594aa1a",
+      "title": "123",
+      "content": "123",
+      "createAt": "2024년 3월 7일 오전 1:09",
+      "isdone": false,
+      "color": "#9df3fe"
+    },
+    {
+      "id": "cecd1b0c-7bfa-4995-85f8-961329d3c913",
       "title": "되냐?",
       "content": "되냐?",
-      "createAt": "2024년 3월 6일 오전 6:57",
-      "isdone": true
-    },
-    {
-      "id": "772a3553-8231-49ce-ad73-fc393aa6d3c4",
-      "title": "어라라",
-      "content": "어라라",
-      "createAt": "2024년 3월 6일 오전 6:58",
-      "isdone": true
-    },
-    {
-      "id": "aa73c927-1189-4cb3-bea7-965a298d6589",
-      "title": "123",
-      "content": "123",
-      "createAt": "2024년 3월 6일 오후 4:33",
-      "isdone": true
-    },
-    {
-      "id": "68ac4e6f-3de1-45df-b5fb-32414a960f8a",
-      "title": "123",
-      "content": "123",
-      "createAt": "2024년 3월 6일 오후 4:33",
-      "isdone": true
-    },
-    {
-      "id": "0823e323-1e88-4b35-8a69-5e3e4f4105b3",
-      "title": "제목입니다",
-      "content": "내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다",
-      "createAt": "2024년 3월 6일 오후 4:44",
-      "isdone": false
-    },
-    {
-      "id": "bc4be03b-ef24-433d-b736-2f985ccfcee2",
-      "title": "1113123123",
-      "content": "12312312312123123",
-      "createAt": "2024년 3월 6일 오후 4:45",
-      "isdone": true
-    },
-    {
-      "id": "f9b8d6be-ae43-42fc-8026-4b70ef9bd801",
-      "title": "123",
-      "content": "123",
-      "createAt": "2024년 3월 6일 오후 4:49",
-      "isdone": true
+      "createAt": "2024년 3월 7일 오전 1:09",
+      "isdone": false,
+      "color": "#ebebeb"
     }
   ]
 }

@@ -3,7 +3,6 @@ import { IInputForm } from '../../hooks/interface';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteTodos, updateTodos } from '../../api/todos';
 import { toast } from 'react-toastify';
-import { randomCardColor } from '../../util/color';
 import * as S from '../../styles/style';
 
 interface Props {
@@ -53,7 +52,7 @@ const TodoItems: React.FC<Props> = ({ item }) => {
   };
 
   return (
-    <li style={{ backgroundColor: randomCardColor() }}>
+    <li style={{ backgroundColor: item.color }}>
       <h3>{item.title}</h3>
       <p>{item.content}</p>
       <S.Date>{item.createAt}</S.Date>

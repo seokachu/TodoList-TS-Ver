@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { getFormattedDate } from '../../util/date';
 import { IInputForm } from '../../hooks/interface';
 import * as S from '../../styles/style';
+import { randomCardColor } from '../../util/color';
 
 const TodoForm = () => {
   const queryClient = useQueryClient();
@@ -16,6 +17,7 @@ const TodoForm = () => {
     content: '',
     createAt: '',
     isdone: false,
+    color: '',
   });
 
   const { title, content } = formState;
@@ -39,6 +41,7 @@ const TodoForm = () => {
         content,
         createAt: getFormattedDate(date),
         isdone: false,
+        color: randomCardColor(),
       };
       mutation.mutate(newTodos);
       resetForm();

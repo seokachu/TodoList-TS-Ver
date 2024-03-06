@@ -20,6 +20,7 @@ export const createTodos = async (item: {
   title: string;
   content: string;
   createAt: string;
+  color: string;
 }) => {
   const { data } = await todoClient.post('/todos', item);
   return data;

@@ -4,4 +4,5 @@ export interface IInputForm {
   content: string;
   createAt: string;
   isdone: boolean;
+  color: string;
 }
