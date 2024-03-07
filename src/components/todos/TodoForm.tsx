@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import inputForm from '../../hooks/inputForm';
 import { createTodos } from '../../api/todos';
 import { toast } from 'react-toastify';
@@ -7,9 +7,12 @@ import { getFormattedDate } from '../../util/date';
 import { IInputForm } from '../../hooks/interface';
 import * as S from '../../styles/style';
 import { randomCardColor } from '../../util/color';
+import { sortTodos } from '@/shared/store/modules/todoSlice';
+import { useAppDispatch } from '@/shared/store/hooks/hooks';
 
 const TodoForm = () => {
   const queryClient = useQueryClient();
+  const dispatch = useAppDispatch();
 
   const { formState, onChangeHandler, resetForm } = inputForm({
     id: '',
@@ -62,6 +65,15 @@ const TodoForm = () => {
     return true;
   };
 
+  const [sortOrder, setSortOrder] = useState('asc');
+
+  const onChangeSortOrder = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const nextSortOrder = e.target.value;
+    dispatch(sortTodos(sortOrder));
+    //select UI
+    setSortOrder(nextSortOrder);
+  };
+
   return (
     <>
       <S.Form onSubmit={onSubmitHandler}>
@@ -91,9 +103,9 @@ const TodoForm = () => {
         <button>등록하기</button>
       </S.Form>
       <div>
-        <select>
-          <option>오름차순</option>
-          <option>내림차순</option>
+        <select onChange={onChangeSortOrder}>
+          <option value="desc">오름차순</option>
+          <option value="asc">내림차순</option>
         </select>
       </div>
     </>

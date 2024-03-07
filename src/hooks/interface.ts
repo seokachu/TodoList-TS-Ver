@@ -6,3 +6,10 @@ export interface IInputForm {
   isdone: boolean;
   color: string;
 }
+export interface ITodo {
+  id: string;
+  title: string;
+  content: string;
+  createAt: string;
+  deadline: string;
+}

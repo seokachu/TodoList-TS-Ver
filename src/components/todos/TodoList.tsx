@@ -3,8 +3,12 @@ import { getTodos } from '../../api/todos';
 import TodoItems from './TodoItems';
 import { IInputForm } from '../../hooks/interface';
 import * as S from '../../styles/style';
+import { useAppSelector } from '@/shared/store/hooks/hooks';
 
 const TodoList = () => {
+  const order = useAppSelector((state) => state.todo.value);
+
+  console.log(order);
   //react-query getTodos 내용 불러오기
   const query = useQuery<IInputForm[]>({
     queryKey: ['todos'],
@@ -26,6 +30,9 @@ const TodoList = () => {
     ? query.data.filter((todo) => !todo.isdone)
     : [];
   const doneTodos = query.data ? query.data.filter((todo) => todo.isdone) : [];
+  const sortTodos = query.data ? [...query.data] : [];
+
+  console.log(sortTodos);
 
   const renderTodoItems = (queryData: IInputForm[], title: string) => (
     <section>
@@ -37,6 +44,19 @@ const TodoList = () => {
       </S.TodoList>
     </section>
   );
+
+  //sort로 정렬
+  if (order === 'asc') {
+    sortTodos.sort(
+      (a: IInputForm, b: IInputForm) =>
+        new Date(a.createAt).getTime() - new Date(b.createAt).getTime()
+    );
+  } else if (order === 'desc') {
+    sortTodos.sort(
+      (b: IInputForm, a: IInputForm) =>
+        new Date(b.createAt).getTime() - new Date(a.createAt).getTime()
+    );
+  }
 
   return (
     <>
